@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>مغامرة الإنجليزي – الصف الخامس</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f4f7ff;--fg:#1d2340;--card:#fff;--mut:#6b7394;--pri:#5b5bf0;--ok:#22b573;--no:#ef4b5f;--sh:0 4px 0 rgba(0,0,0,.12);
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#12152b;--fg:#eef0ff;--card:#1e2342;--mut:#98a0c8}}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Cairo,Tahoma,system-ui,sans-serif;min-height:100vh}
+#app{max-width:640px;margin:auto;padding:14px}
+header{display:flex;justify-content:space-between;align-items:center;gap:8px}
+h1{font-size:1.25rem;margin:0;font-weight:900}h2{margin:14px 0 8px}small{color:var(--mut)}
+button{font-family:inherit;cursor:pointer;border:0;color:inherit}
+.ic{width:44px;height:44px;border-radius:50%;background:var(--card);font-size:1.3rem;box-shadow:var(--sh)}
+.xpbar{height:10px;background:var(--card);border-radius:9px;margin:10px 0;overflow:hidden}
+.xpbar i{display:block;height:100%;background:linear-gradient(90deg,#ffb347,#ff5e62);border-radius:9px;transition:width .5s}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.unit{background:var(--c);color:#fff;border-radius:20px;padding:14px 8px;display:flex;flex-direction:column;align-items:center;gap:2px;box-shadow:var(--sh);font-size:.9rem;transition:transform .15s}
+.unit:active{transform:scale(.95)}.unit .em{font-size:2.6rem;animation:fl 3s ease-in-out infinite}.unit em{font-style:normal;letter-spacing:2px}
+@keyframes fl{50%{transform:translateY(-6px) rotate(6deg)}}
+.tabs{display:flex;gap:8px;overflow-x:auto;margin:10px 0}.tabs button{padding:8px 14px;border-radius:20px;background:var(--card)}.tabs .on{background:var(--pri);color:#fff}
+.big{display:block;width:100%;padding:16px;margin:10px 0;border-radius:18px;font-size:1.15rem;font-weight:700;color:#fff;box-shadow:var(--sh)}
+.back{background:none;color:var(--mut);padding:8px 0;font-size:1rem}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.card{background:var(--card);border-radius:18px;padding:14px 6px;text-align:center;box-shadow:var(--sh)}
+.card.pop{animation:pop .4s}.card .em{font-size:2.4rem;display:block}.card b{display:block;font-size:1.1rem;direction:ltr}.card span{color:var(--mut)}
+@keyframes pop{40%{transform:scale(1.12) rotate(-3deg)}}
+.q{background:var(--card);border-radius:20px;padding:18px;margin:12px 0;font-size:1.25rem;font-weight:700;direction:ltr;text-align:left;box-shadow:var(--sh)}
+.opt{display:block;width:100%;margin:9px 0;padding:14px;border-radius:16px;background:var(--card);font-size:1.1rem;direction:ltr;box-shadow:var(--sh);border:3px solid transparent}
+.opt.good,.chip.good{background:var(--ok);color:#fff}.opt.bad{background:var(--no);color:#fff;animation:sk .4s}
+@keyframes sk{25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+.slot{min-height:56px;background:var(--card);border:3px dashed var(--mut);border-radius:16px;padding:8px;direction:ltr;display:flex;flex-wrap:wrap;gap:6px;font-size:1.05rem}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0;direction:ltr}.chip{padding:10px 14px;border-radius:14px;background:var(--pri);color:#fff;font-size:1.05rem;box-shadow:var(--sh)}.chip:disabled{opacity:.25}
+.bar{height:12px;background:var(--card);border-radius:9px;flex:1;overflow:hidden}.bar i{display:block;height:100%;background:var(--pri);transition:width .4s}
+.top{display:flex;align-items:center;gap:10px}
+.fb{border-radius:16px;padding:12px;margin:10px 0;font-weight:700;animation:pop .4s}.fb.y{background:#d9f7e8;color:#0c5c38}.fb.n{background:#ffe0e4;color:#8a1427}
+.res{text-align:center}.res .st{font-size:3rem;letter-spacing:6px}.res .st span{display:inline-block;animation:pop .6s both}
+.sp{position:fixed;top:-30px;font-size:1.6rem;pointer-events:none;animation:fall 1.4s linear forwards;z-index:9}
+@keyframes fall{to{transform:translateY(105vh) rotate(360deg)}}
+
+.magic{display:block;width:100%;margin:10px 0;background:linear-gradient(135deg,#7b2ff7,#f107a3);color:#fff;animation:glow 2.5s ease-in-out infinite}.magic span,.magic small{color:#fff}
+@keyframes glow{50%{box-shadow:0 0 18px #f107a3aa}}
+.wand{display:block;width:100%;padding:10px;margin:8px 0;border-radius:14px;background:#ffe58a;color:#5a4300;font-weight:700;box-shadow:var(--sh)}.wand:disabled{opacity:.5}
+.tip{background:#fff4d6;color:#5a4300;border-radius:16px;padding:12px;margin:10px 0;line-height:1.9;font-size:.95rem}
+.toast{position:fixed;top:18px;left:50%;transform:translateX(-50%);background:var(--pri);color:#fff;padding:12px 20px;border-radius:30px;font-weight:700;z-index:99;box-shadow:var(--sh);animation:pop .5s}
+.ft{max-width:640px;margin:18px auto 0;padding:18px 14px calc(18px + env(safe-area-inset-bottom,0px));text-align:center;background:var(--card);border-radius:24px 24px 0 0;box-shadow:0 -4px 0 rgba(0,0,0,.06)}
+.ft .msg{font-size:1.1rem;font-weight:900;color:var(--pri);margin-bottom:12px}
+.ft .btns{display:flex;gap:10px;flex-wrap:wrap}.ft a{flex:1;min-width:140px;padding:12px;border-radius:14px;color:#fff;text-decoration:none;font-weight:700;box-shadow:var(--sh)}
+.ft .fbk{background:#1877f2}.ft .wa{background:#25d366}.ft .cr{margin-top:14px;font-size:.85rem;color:var(--mut);direction:ltr;font-family:system-ui,sans-serif}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<footer class="ft"><div class="msg">🌟 مع التمنيات بالتوفيق والنجاح 🌟</div><div class="btns"><a class="fbk" href="https://www.facebook.com/el.3omda.el.kbeer" target="_blank" rel="noopener">📘 تابعني على فيسبوك</a><a class="wa" href="https://wa.me/201556159299?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%D8%8C%20%D8%B9%D9%86%D8%AF%D9%8A%20%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%A8%D8%AE%D8%B5%D9%88%D8%B5%20%D8%AA%D8%B7%D8%A8%D9%8A%D9%82%20%D9%85%D8%BA%D8%A7%D9%85%D8%B1%D8%A9%20%D8%A7%D9%84%D8%A5%D9%86%D8%AC%D9%84%D9%8A%D8%B2%D9%8A" target="_blank" rel="noopener">💬 تواصل سريع واتساب</a></div><div class="cr">Designed By Emad Mohammad | EMAD MULTIMEDIA</div></footer>
+
+<script>
+/* ===== المحتوى: لإضافة مادة جديدة أضف عنصراً في SUBJ بنفس الشكل =====
+ v: "كلمة|معناها|إيموجي"   q: ["m",سؤال,[الصح,خطأ,خطأ,خطأ]] | ["t",جملة,1/0] | ["o",جملة للترتيب] */
+const U=[
+{id:"u1",ar:"الأكل والطبيعة",e:"🐊",c:"#2e9d6a",
+v:["crocodile|تمساح|🐊","hunt|يصطاد|🏹","water weeds|أعشاب مائية|🌿","insects|حشرات|🐛","shade|ظل|⛱️","selfish|أناني|😒","recipe|وصفة أكل|📜","crown|تاج|👑"],
+q:[["m","Small fish in the Nile eat ____.",["water weeds","crocodiles","big birds","rocks"]],
+["m","Crocodiles are the ____ of the Nile.",["kings","babies","friends","servants"]],
+["t","Snakes never eat plants.",1],
+["m","Camels ____ store water in their bodies.",["always","are","been","to"]],
+["m","Tom was ____ because he took more from the tree than he gave.",["selfish","careful","kind","shade"]],
+["o","Lizards are sometimes dangerous."]]},
+{id:"u2",ar:"جسمي الصحي",e:"💪",c:"#e8564f",
+v:["fit|لائق بدنياً|🏃","muscles|عضلات|💪","lungs|رئتان|🫁","mental health|الصحة النفسية|🧠","stressed|متوتر|😰","oxygen|أكسجين|💨","vitamins|فيتامينات|🍎","blood vessels|أوعية دموية|🩸"],
+q:[["m","Your ____ help you breathe.",["lungs","muscles","bones","fists"]],
+["m","Do you have ____ water?",["any","an","a","many"]],
+["m","She eats ____ egg every morning.",["an","a","any","some"]],
+["t","Swimming makes your lungs strong.",1],
+["t","Adam drinks soda instead of water now.",0],
+["m","The heart is about the size of your ____.",["fist","head","foot","chest"]],
+["o","I have some apples."]]},
+{id:"u3",ar:"لما الطبيعة تتغير",e:"⛈️",c:"#4a7cf0",
+v:["flood|فيضان|🌊","drought|جفاف|🏜️","wildfire|حريق غابات|🔥","heat wave|موجة حر|🥵","thunderstorm|عاصفة رعدية|⛈️","sandstorm|عاصفة رملية|🌪️","pond|بركة|🐸","leaped|قفز|🦘"],
+q:[["m","A ____ happens when there is no rain for a long time.",["drought","flood","thunderstorm","heat wave"]],
+["m","Why didn’t you ____ to school yesterday?",["go","went","goes","going"]],
+["m","They ____ the zoo last weekend.",["visited","visit","visits","visiting"]],
+["m","____ there sandstorms in the past?",["Were","Did","Do","Are"]],
+["t","The two frogs decided to live in the well.",0],
+["t","A wildfire burns through forests.",1],
+["o","The two frogs leaped through fields and grass."]]},
+{id:"u4",ar:"مجتمعي",e:"🏘️",c:"#f09a2b",
+v:["restaurant|مطعم|🍽️","bakery|مخبز|🥖","supermarket|سوبر ماركت|🛒","club|نادي|⚽","theme park|مدينة ملاهي|🎢","coffee shop|كافيه|☕","barn|حظيرة|🐄","field|حقل|🌾"],
+q:[["m","I was born ____ March.",["in","on","at","by"]],
+["m","The party is ____ Friday.",["on","in","at","to"]],
+["m","Let’s meet ____ 3 p.m.",["at","in","on","for"]],
+["m","You can buy bread and cakes at the ____.",["bakery","barn","club","theme park"]],
+["m","Farmers keep cows and sheep in the ____.",["barn","cottage","supermarket","coffee shop"]],
+["t","The Iconic Tower is in the New Administrative Capital.",1],
+["o","I get up at 6 a.m. every day."]]},
+{id:"u5",ar:"عالمنا ومواردنا",e:"💎",c:"#8e5bd6",
+v:["natural resources|موارد طبيعية|🌍","fertile|خصبة|🌱","minerals|معادن|💎","fossil fuel|وقود أحفوري|🛢️","cotton|قطن|☁️","electricity|كهرباء|⚡","cargo|شحنة بضائع|🚢","digger|حفّارة|🚜"],
+q:[["m","Gold is ____ than diamond.",["cheaper","more cheap","cheapest","cheap"]],
+["m","Diamond is ____ valuable than gold.",["more","most","much","very"]],
+["m","This test is ____ than the last one.",["better","gooder","more good","best"]],
+["m","We use copper to make electrical ____.",["wires","crowns","shells","paths"]],
+["t","Minerals take only a few months to form.",0],
+["m","What does the little digger teach us?",["Size doesn’t matter","Big is always best","Never help others","Give up fast"]],
+["o","Winter is colder than summer."]]},
+{id:"u6",ar:"الأرض اللي بتتكلم",e:"🦉",c:"#1fa0a8",
+v:["canoe|قارب كانوه|🛶","swamp|مستنقع|🐊","alligator|تمساح أمريكي|🐊","owl|بومة|🦉","shell|صدفة / قوقعة|🐢","scientist|عالِم|🔬","elders|كبار القبيلة|👴","survive|ينجو|🏕️"],
+q:[["m","Billie dreamed of becoming a ____.",["scientist","doctor","teacher","pilot"]],
+["m","The turtles hid in their ____ when danger was near.",["shells","canoes","barns","wells"]],
+["m","Billie went into the ____ National Park.",["Everglades","Nile","Delta","Sahara"]],
+["t","Billie Wind was a young Egyptian girl.",0],
+["t","The Earth talks through the wind and animals.",1],
+["m","Who told Billie to go and listen to the Earth?",["The elders","Her friends","The owls","The ship"]],
+["o","Billie packed her canoe and went."]]}
+];
+const SUBJ=[{id:"en5",ar:"إنجليزي – خامسة ابتدائي (ترم 1)",e:"🇬🇧",units:U}];
+/* ===== الجرامر: n الاسم · r الشرح · x أمثلة · q أسئلة (نفس شكل أسئلة الوحدات) ===== */
+const G=[
+{id:"g1",n:"Adverbs of Frequency",ar:"كام مرة؟",e:"🔁",c:"#2e9d6a",
+r:"بنستخدمها نقول الحاجة بتحصل <b>كام مرة</b>:<br><span dir=ltr>always › usually › often › sometimes › rarely › never</span><br>📌 بتيجي <b>قبل</b> الفعل: <span dir=ltr>I always play.</span><br>📌 وبتيجي <b>بعد</b> verb to be: <span dir=ltr>She is never late.</span>",
+x:["Camels always store water in their bodies.","Lizards are sometimes dangerous.","Snakes never eat plants."],
+q:[["m","I ____ brush my teeth every day. (100%)",["always","never","rarely","hardly"]],["m","She ____ eats chips. She doesn’t like them. (0%)",["never","always","usually","often"]],["m","The camel is ____ strong.",["always","are always","always is","alwaying"]],["t","We put the adverb of frequency after the verb to be.",1],["o","Snakes never eat plants."],["o","Camels are always strong."]]},
+{id:"g2",n:"a / an / some / any",ar:"أدوات النكرة والكمية",e:"🍎",c:"#e8564f",
+r:"<b>a</b> قبل اسم مفرد يبدأ بصوت ساكن: <span dir=ltr>a banana</span><br><b>an</b> قبل صوت متحرك (a e i o u): <span dir=ltr>an egg, an orange</span><br><b>some</b> في الجملة المثبتة: <span dir=ltr>I have some apples.</span><br><b>any</b> في النفي والسؤال: <span dir=ltr>I don’t have any milk. Do you have any water?</span>",
+x:["She eats an egg in the morning.","I have some apples.","Do you have any water?"],
+q:[["m","I want ____ orange.",["an","a","some","any"]],["m","There aren’t ____ apples.",["any","some","an","a"]],["m","I have ____ water.",["some","a","an","many"]],["m","He bought ____ banana.",["a","an","any","some"]],["t","We use “any” in positive sentences.",0],["o","Do you have any water?"]]},
+{id:"g3",n:"Past Simple",ar:"الماضي البسيط",e:"⏪",c:"#4a7cf0",
+r:"حاجة حصلت وخلصت في الماضي.<br>✅ مثبت: فعل+ed <span dir=ltr>(visited)</span> أو شاذ <span dir=ltr>(go ← went)</span><br>❌ نفي: <b>didn’t + الفعل الأصلي</b> <span dir=ltr>(didn’t go)</span><br>❓ سؤال: <b>Did + فاعل + الفعل الأصلي؟</b><br>⭐ مع verb to be: <span dir=ltr>was / were — wasn’t / weren’t — Was / Were ...?</span>",
+x:["In Ancient Egypt, the Nile flooded every year.","The Egyptians didn’t have modern tools.","What did the Egyptians do?"],
+q:[["m","She didn’t ____ the film.",["watch","watched","watches","watching"]],["m","____ you visit the zoo yesterday?",["Did","Do","Does","Are"]],["m","We ____ to the club last Friday.",["went","goed","go","going"]],["m","I ____ at home yesterday.",["was","were","am","is"]],["t","After “didn’t” we use the past form of the verb.",0],["o","Did you go to school yesterday?"]]},
+{id:"g4",n:"Prepositions of Time",ar:"at / in / on",e:"⏰",c:"#f09a2b",
+r:"<b>at</b> مع الساعة ووقت الأكل: <span dir=ltr>at 6 a.m., at lunchtime, at night</span><br><b>in</b> مع أجزاء اليوم والشهور والفصول والسنين: <span dir=ltr>in the morning, in March, in summer, in 2020</span><br><b>on</b> مع الأيام والتواريخ: <span dir=ltr>on Friday, on June 8th</span>",
+x:["I get up at 6 a.m.","The weather is hot in summer.","My birthday is on June 8th."],
+q:[["m","School starts ____ September.",["in","on","at","to"]],["m","See you ____ Monday.",["on","in","at","by"]],["m","I sleep ____ night.",["at","in","on","by"]],["m","I was born ____ 2015.",["in","on","at","for"]],["t","We say “in 5 p.m.”",0],["o","My birthday is on June 8th."]]},
+{id:"g5",n:"Comparatives",ar:"المقارنة",e:"⚖️",c:"#8e5bd6",
+r:"بنقارن بين اتنين + <b>than</b><br>صفة قصيرة: +er <span dir=ltr>(cheaper than)</span><br>صفة بتنتهي بـ y: y ← i + er <span dir=ltr>(happier than)</span><br>صفة طويلة: more / less <span dir=ltr>(more valuable than)</span><br>شاذة: <span dir=ltr>good ← better · bad ← worse · little ← less · many ← more</span>",
+x:["Gold is cheaper than diamond.","Diamond is more valuable than gold.","This test is better than the last one."],
+q:[["m","An elephant is ____ than a cat.",["bigger","more big","biggest","big"]],["m","Maths is ____ than English for me. (difficult)",["more difficult","difficulter","most difficult","difficult"]],["m","This game is ____ than that one. (good)",["better","gooder","more good","best"]],["m","Amira is ____ than Mohamed. (happy)",["happier","more happy","happyer","happiest"]],["t","We say “more tall than”.",0],["o","Winter is colder than summer."]]}
+];
+/* ===== الأوسمة والصاحب (للتحفيز) ===== */
+const BG=[["🥉","أول نجمة",()=>Object.values(S.p).some(v=>v>0)],["🔥","3 أيام ورا بعض",()=>S.st>=3],["🏆","3 نجوم في وحدة",()=>Object.values(S.p).includes(3)],["💯","100 XP",()=>S.xp>=100],["📐","3 دروس جرامر",()=>G.filter(g=>S.p[g.id]>0).length>=3]];
+const pet=()=>["🥚","🐣","🐥","🦅","🐉"][Math.min(4,Math.floor(S.xp/100))];
+
+/* ===== توسعة الوحدة 1 (كلمات + قراءة + أسئلة) ===== */
+U[0].v.push("Nile|النيل|🏞️","camel|جمل|🐪","lizard|سحلية|🦎","snake|ثعبان|🐍","trunk|جذع الشجرة|🌳","branch|فرع الشجرة|🌿","care for|يهتم بـ|❤️","flyer|منشور دعائي|📄");
+U[0].rd=[{t:"Life Along the Nile",s:["Many animals live in the Nile River.","Small fish eat water weeds.","Birds eat insects and small fish.","Crocodiles hunt big animals near the water.","They are the kings of the Nile.","Every animal is important, so we must protect the river."]},
+{t:"Animals in the Desert",s:["The desert is hot and dry.","Snakes often eat rats and lizards.","Camels eat plants to stay strong.","Lizards eat insects to get energy.","Some animals hide under rocks in the day.","Owls come out at night when it is cooler."]},
+{t:"The Giving Tree",s:["Tom loved a big apple tree.","He ate its apples and rested in its shade.","But he was selfish and never cared for the tree.","Years later, Tom came back and the tree was weak and sad.","Tom watered the tree and protected it.","Soon the tree was strong again, and they became best friends."]}];
+U[0].q.push(
+["m","What do birds in the Nile eat?",["Small fish, insects and plants","Only rocks","Only big animals","Nothing"]],
+["m","Why must we protect the Nile?",["Every animal needs the river","It is very small","It has no animals","It is dry"]],
+["t","The Nile River is not important for animals and people.",0],
+["t","Big fish in the Nile eat big animals.",0],
+["t","The desert is hot and dry.",1],
+["m","Where do some desert animals hide in the day?",["Under rocks","In the Nile","In trees","In the sea"]],
+["m","Lizards eat insects to get ____.",["energy","water","shade","money"]],
+["m","Which animals come out at night in the desert?",["Owls","Fish","Crocodiles","Cows"]],
+["m","What is the moral of The Giving Tree?",["We should appreciate those who care for us","We should ignore people who help us","Never plant trees","Always travel"]],
+["m","When Tom came back, the tree was ____.",["weak and sad","strong and happy","very tall","full of apples"]],
+["t","At the end, Tom watered the tree and cared for it.",1],
+["m","A ____ is the part that grows out of the tree trunk.",["branch","recipe","flyer","insect"]],
+["m","Snakes ____ eat plants.",["never","always","often","usually"]],
+["o","Crocodiles often hunt near the water."],
+["o","First, cook the rice in a pot."],
+["o","Finally, pour the red sauce on top."],
+["m","In the Koshari recipe, what do you do first?",["Cook the rice","Add the sauce","Fry the onions","Eat it"]],
+["m","Which word starts with the cluster “tr”?",["tree","bee","sun","cat"]],
+["m","Choose the cluster: ___ink (a drink)",["dr","tr","bl","cr"]],
+["m","Choose the cluster: ___ack (not white)",["bl","cr","pl","tr"]],
+["l","crocodile",["crocodile","cockroach","crown","crowd"]],
+["l","insects",["insects","inside","instead","increase"]],
+["l","hunt",["hunt","hut","hurt","hint"]],
+["l","shade",["shade","shake","shape","share"]]);
+function rdr(j){const r=cur().units[K].rd[j];A.innerHTML=`<button class="back" onclick="unit(${K})">→ رجوع</button><h2>📚 ${r.t}</h2><small>اضغط على أي جملة تسمعها</small><button class="big" style="background:#3aa0ff" onclick="say(cur().units[K].rd[${j}].s.join(' '))">🔊 اسمع كله</button><div class="q" style="font-weight:400;line-height:2.1">${r.s.map((s,i)=>`<span style="cursor:pointer" onclick="say(cur().units[K].rd[${j}].s[${i}]);this.style.background='#ffe58a'">${s}</span>`).join(" ")}</div>`}
+/* ===== الوحدات 2-6 ===== */
+U[1].v.push("heart|قلب|❤️","blood|دم|🩸","healthy|صحي|🥗","exercise|يتمرن|🏋️","sleep|ينام|😴","doctor|دكتور|👨‍⚕️","nurse|ممرضة|👩‍⚕️","pharmacist|صيدلي|💊","paramedic|مسعف|🚑");
+U[1].rd=[{t:"Sports for Better Health",s:["Playing sports keeps us healthy and strong.","Football makes the heart and muscles strong.","Swimming makes our lungs strong.","Exercise helps us sleep better and feel less stressed."]},{t:"Heart and Blood",s:["The heart is about the size of your fist.","It pumps blood to every part of the body.","Blood carries oxygen and nutrients.","Food, water, sleep and exercise keep the heart healthy."]},{t:"Healthcare Heroes",s:["Doctors check patients and find the problem.","Nurses take care of patients day and night.","Pharmacists give the right medicine.","Paramedics help people quickly in emergencies."]}];
+U[1].q.push(["m","Football makes your heart and ____ strong.",["muscles","shade","flyer","branch"]],["m","Swimming makes your ____ strong.",["lungs","fist","crown","hair"]],["m","What helps you sleep better and feel less stressed?",["Exercise","Soda","Chips","Watching TV all day"]],["m","The heart pumps ____ to all parts of the body.",["blood","water","air","food"]],["t","Blood carries oxygen and nutrients to every cell.",1],["t","Too much stress is good for your heart.",0],["m","A ____ gives patients the correct medicine.",["pharmacist","paramedic","farmer","driver"]],["m","A ____ helps people quickly in an emergency.",["paramedic","pharmacist","baker","teacher"]],["m","Adam’s favorite snacks are apples, bananas and ____.",["carrots","chips","burgers","sweets"]],["m","Choose the one-syllable word:",["jump","basket","banana","elephant"]],["m","How many claps (syllables) in “banana”?",["3","1","2","4"]],["m","I eat ____ apple every day.",["an","a","any","some"]],["m","There isn’t ____ cheese in the fridge.",["any","some","a","an"]],["o","Exercise makes your heart strong."],["l","healthy",["healthy","wealthy","hearty","heavy"]],["l","oxygen",["oxygen","organ","orange","origin"]],["l","lungs",["lungs","logs","legs","lines"]]);
+U[2].v.push("storm|عاصفة|🌩️","safely|بأمان|🛟","well|بئر|🕳️","news|الأخبار|📰","stuck|عالق|🚗","damaged|تضرر|🏚️");
+U[2].rd=[{t:"Weather in Ancient Egypt",s:["The Nile flooded every year and brought rich soil.","Sometimes floods damaged the farms.","In a drought, the river became low.","The Egyptians built canals and irrigation systems to bring water to their fields.","Thick mud bricks protected their homes from sandstorms."]},{t:"The Two Frogs",s:["Two frogs lived in a small pond.","One hot summer, the pond started to dry up.","They leaped away to find a new home.","They found a deep well, but one frog worried the water might dry up.","So they kept looking for a safer home."]}];
+U[2].q.push(["m","A ____ is a strong wind that carries sand and dust.",["sandstorm","flood","drought","pond"]],["m","A ____ burns forests and homes.",["wildfire","flood","drought","thunderstorm"]],["m","In a ____ the temperature is dangerously high for days.",["heat wave","flood","wildfire","drought"]],["t","A flood is when there is no rain for a long time.",0],["m","Why did the frogs leave the pond?",["It started to dry up","They were bored","It was too cold","A snake lived there"]],["m","Why didn’t the frogs live in the well?",["The water might dry up and they would be stuck","It was too small","It was too noisy","It had no water"]],["t","The Ancient Egyptians built canals to control the water.",1],["m","Mud bricks protected the Egyptians from ____.",["sandstorms","snow","earthquakes","hail"]],["m","Yesterday I ____ a nice animal.",["saw","see","seen","seeing"]],["m","Malik didn’t ____ TV last night.",["watch","watched","watches","watching"]],["m","Which word has a vowel digraph (two vowels, one sound)?",["boat","cup","hot","pen"]],["o","Were there sandstorms in the past?"],["l","flood",["flood","food","fled","flat"]],["l","drought",["drought","dragon","drop","dress"]],["l","leaped",["leaped","lifted","looked","leaned"]]);
+U[3].v.push("cottage|كوخ|🏡","community center|مركز مجتمعي|🏛️","main square|الميدان|⛲","village|قرية|🏘️","city|مدينة|🏙️","smart|ذكي|🤖","reduce|يقلل|📉");
+U[3].rd=[{t:"Life in My Village",s:["I live in a cozy cottage near the community center.","Farmers keep cows and sheep in the barns.","On Saturdays, people shop at the market in the main square.","At night, the village is quiet and peaceful."]},{t:"The New Administrative Capital",s:["Egypt is building new cities.","The New Administrative Capital is east of Cairo.","It helps reduce crowding in Cairo.","It is a smart city with green areas.","The Iconic Tower is the tallest building in Africa."]}];
+U[3].q.push(["m","People shop at the market in the main ____.",["square","barn","cottage","field"]],["m","You can go on rides at the ____.",["theme park","bakery","supermarket","club"]],["m","People relax and drink coffee at the ____.",["coffee shop","barn","club","field"]],["m","I play games at the community center ____ Thursdays.",["on","in","at","to"]],["m","I get up ____ 7 a.m.",["at","in","on","by"]],["m","It is hot ____ summer.",["in","on","at","to"]],["m","The new city helps ____ crowding in Cairo.",["reduce","grow","build","paint"]],["t","The Iconic Tower is in a village.",0],["t","Farmers keep animals in barns.",1],["m","In “bridge”, the letters “dge” sound like ____.",["j","k","s","t"]],["m","In “match”, the letters “tch” sound like ____.",["ch","sh","k","s"]],["m","A farmer has 4 boxes. Each box has 32 apples. How many apples?",["128","36","108","132"]],["o","The party is on Friday."],["l","bridge",["bridge","brush","bread","brick"]],["l","night",["night","knit","net","nut"]],["l","watch",["watch","wash","wish","witch"]]);
+U[4].v.push("sunlight|ضوء الشمس|☀️","soil|تربة|🌱","wind|رياح|💨","copper|نحاس|🔶","iron|حديد|🔩","gold|ذهب|🥇","path|ممر|🛤️","thick|سميك|🧱");
+U[4].rd=[{t:"Treasures of Egypt",s:["The Nile is the most important water resource in Egypt.","Egypt has oil and natural gas.","We grow cotton, wheat and fruit on the fertile land.","The deserts have gold, iron and other minerals."]},{t:"The Little Digger",s:["A big ship got stuck in thick mud.","The big machines could not help.","The little digger said, “Just watch!”","It dug a path and the ship floated free.","Size doesn’t matter. Use your strength to help others."]}];
+U[4].q.push(["m","Which is the most important water resource in Egypt?",["The Nile","Gold","Copper","Oil"]],["m","Oil and natural gas are used to make fuel and ____.",["electricity","cotton","gold","soil"]],["m","The ____ land along the Nile is good for growing food.",["fertile","thick","poor","dry"]],["m","Gold is used for coins and ____.",["jewelry","bridges","ships","wires"]],["t","Natural resources are things we find in nature.",1],["t","Minerals form in a few days.",0],["m","The big ship got stuck in thick ____.",["mud","snow","sand","water"]],["m","Who helped the big ship?",["The little digger","The big machines","The elders","Tom"]],["m","Diamond is ____ than copper. (valuable)",["more valuable","valuabler","most valuable","valuable"]],["m","Summer is ____ than winter. (hot)",["hotter","more hot","hottest","hot"]],["m","The prefix “dis-” in “dislike” means ____.",["not","again","two","very"]],["m","The prefix “bi-” (as in bicycle) means ____.",["two","one","three","not"]],["m","“mis-” + “take” = ____",["mistake","distake","bitake","retake"]],["o","Diamond is more valuable than gold."],["l","copper",["copper","coffee","copy","cover"]],["l","fertile",["fertile","futile","turtle","fragile"]]);
+U[5].v.push("wisdom|حكمة|🦉","shelter|مأوى|⛺","attack|يهاجم|⚠️","struggle|يكافح|😓","Everglades|الإيفرجليدز|🌴","tribe|قبيلة|🏕️");
+U[5].rd=[{t:"Billie Wind",s:["Billie Wind was a young Native American girl.","She loved science, but she did not believe the Earth could talk.","The elders sent her into the Everglades alone.","At first she was afraid and struggled to survive.","She watched the animals and learned from them."]},{t:"What Billie Learned",s:["Alligators waited patiently for food.","Turtles hid in their shells when danger was near.","Birds warned each other about danger.","Billie learned that the Earth talks through the wind and animals.","Everything in nature is connected, so we must take care of it."]}];
+U[5].q.push(["m","Billie Wind lived in ____.",["Florida","Egypt","Japan","Canada"]],["m","Who sent Billie into the Everglades?",["The elders","Her friends","A scientist","An owl"]],["m","At first, Billie ____ in the Everglades.",["struggled to survive","felt very safe","built a house","went home"]],["m","The ____ waited patiently for their food.",["alligators","owls","turtles","elders"]],["m","The birds ____ each other when an animal came to attack.",["warned","ignored","scared","fed"]],["t","Billie learned to catch fish and make a fire.",1],["t","The Earth talks with words like people.",0],["m","What did Billie learn at the end?",["Everything in nature is connected","Nature is not important","Alligators are friends","Never go outside"]],["m","A ____ is a safe place that protects you from bad weather.",["shelter","swamp","tribe","shell"]],["m","A ____ is a wet, muddy area with many plants.",["swamp","canoe","shell","path"]],["m","What should we do to help nature?",["Take care of everything in nature","Harm nature","Waste water","Cut all trees"]],["o","Turtles hide in their shells."],["l","scientist",["scientist","sentence","science","silent"]],["l","owl",["owl","oil","old","out"]],["l","swamp",["swamp","sweep","swim","swan"]]);
+/* ===== نطق بالعربي (للولد) ===== */
+const PR={"crocodile":"كروكُدايل","hunt":"هانت","water weeds":"ووتر ويدز","insects":"إنسِكتس","shade":"شيد","selfish":"سِلفِش","recipe":"ريسِبي","crown":"كراون","Nile":"نايل","camel":"كامِل","lizard":"ليزِد","snake":"سنيك","trunk":"ترانك","branch":"برانتش","care for":"كير فور","flyer":"فلايِر","fit":"فِت","muscles":"ماسِلز","lungs":"لانجز","mental health":"مِنتل هِلث","stressed":"ستريست","oxygen":"أُكسِجِن","vitamins":"فِتامِنز","blood vessels":"بلاد فِسِلز","heart":"هارت","blood":"بلاد","healthy":"هِلثي","exercise":"إكسِرسايز","sleep":"سليب","doctor":"دُكتَر","nurse":"ناِرس","pharmacist":"فارماسِست","paramedic":"باراميدِك","flood":"فلاد","drought":"دراوت","wildfire":"وايلد فاير","heat wave":"هيت ويف","thunderstorm":"ثاندِر ستورم","sandstorm":"ساند ستورم","pond":"بوند","leaped":"ليبت","storm":"ستورم","safely":"سيفلي","well":"ويل","news":"نيوز","stuck":"ستاك","damaged":"دامِجد","restaurant":"ريستورِنت","bakery":"بيكَري","supermarket":"سوبَرماركِت","club":"كلاب","theme park":"ثيم بارك","coffee shop":"كوفي شوب","barn":"بارن","field":"فيلد","cottage":"كوتِج","community center":"كَميونِتي سِنتَر","main square":"مين سكوير","village":"فِلِج","city":"سِتي","smart":"سمارت","reduce":"ريديوس","natural resources":"ناتشرَل ريسورسِز","fertile":"فِرتايل","minerals":"مِنَرَلز","fossil fuel":"فوسِل فيول","cotton":"كوتن","electricity":"إليكتريسِتي","cargo":"كارجو","digger":"ديجَر","sunlight":"سانلايت","soil":"سويل","wind":"ويند","copper":"كوبَر","iron":"آيَن","gold":"جولد","path":"باث","thick":"ثِك","canoe":"كَنو","swamp":"سووامب","alligator":"أليجيتَر","owl":"أول","shell":"شِل","scientist":"سايَنتِست","elders":"إلدَرز","survive":"سَرفايف","wisdom":"ويزدِم","shelter":"شيلتَر","attack":"أتاك","struggle":"ستراجِل","Everglades":"إيفَرجليدز","tribe":"ترايب"};
+/* ===== الحالة والحفظ ===== */
+const A=document.getElementById("app");
+let S={xp:0,st:0,day:"",p:{},m:0,sub:0,acc:"en-GB",sl:0};
+try{S=Object.assign(S,JSON.parse(localStorage.getItem("eq5")||"{}"))}catch(e){}
+const save=()=>{try{localStorage.setItem("eq5",JSON.stringify(S))}catch(e){}};
+const cur=()=>SUBJ[S.sub],shuf=a=>a.map(x=>[Math.random(),x]).sort((a,b)=>a[0]-b[0]).map(x=>x[1]);
+
+/* ===== الأصوات ===== */
+let ac;
+const tone=(f,d,ty="sine",v=.2,w=0)=>{if(S.m)return;try{ac=ac||new(window.AudioContext||window.webkitAudioContext)();const o=ac.createOscillator(),g=ac.createGain(),t=ac.currentTime+w;o.type=ty;o.frequency.value=f;g.gain.setValueAtTime(v,t);g.gain.exponentialRampToValueAtTime(.001,t+d);o.connect(g);g.connect(ac.destination);o.start(t);o.stop(t+d)}catch(e){}};
+const sfx={ok:()=>[523,659,784].forEach((f,i)=>tone(f,.18,"triangle",.25,i*.08)),no:()=>{tone(200,.25,"sawtooth",.15);tone(140,.3,"sawtooth",.15,.15)},win:()=>[523,659,784,1047,784,1047].forEach((f,i)=>tone(f,.22,"triangle",.25,i*.1)),tap:()=>tone(700,.05,"square",.08)};
+const say=t=>{if(S.m||!window.speechSynthesis)return;try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t.replace(/_+/g,"blank")),vs=speechSynthesis.getVoices().filter(v=>v.lang.replace("_","-").toLowerCase().startsWith(S.acc.toLowerCase()));if(vs.length)u.voice=vs[0];u.lang=S.acc;u.rate=S.sl?.6:.8;speechSynthesis.speak(u)}catch(e){}};
+const acc=()=>{S.acc=S.acc=="en-GB"?"en-US":"en-GB";save();home();say("Hello, this is my voice")};
+const boom=()=>{for(let i=0;i<16;i++){const s=document.createElement("span");s.className="sp";s.textContent=["⭐","🎉","✨","🌟"][i%4];s.style.left=Math.random()*95+"%";s.style.animationDelay=Math.random()*.4+"s";document.body.appendChild(s);setTimeout(()=>s.remove(),2000)}};
+const mute=()=>{S.m=1-S.m;save();home()};
+
+/* ===== الشاشات ===== */
+function home(){
+ const us=cur().units,lv=Math.floor(S.xp/100)+1,dx=S.dd==new Date().toDateString()?S.dxp||0:0;
+ A.innerHTML=`<header><div><h1>🚀 مغامرة المذاكرة</h1><small>مستوى ${lv} · ⭐ ${S.xp} XP · 🔥 ${S.st} يوم</small></div><div style="display:flex;gap:6px"><button class="ic" title="اللهجة" onclick="acc()">${S.acc=="en-GB"?"🇬🇧":"🇺🇸"}</button><button class="ic" title="السرعة" onclick="S.sl=1-S.sl;save();home();say('Slow or normal')">${S.sl?"🐢":"🐇"}</button><button class="ic" onclick="mute()">${S.m?"🔇":"🔊"}</button></div></header>
+ ${SUBJ.length>1?`<div class="tabs">${SUBJ.map((s,k)=>`<button class="${k==S.sub?"on":""}" onclick="S.sub=${k};save();home()">${s.e} ${s.ar}</button>`).join("")}</div>`:""}
+ <div class="xpbar"><i style="width:${S.xp%100}%"></i></div>
+ <div class="card" style="display:flex;align-items:center;gap:12px;text-align:right"><span style="font-size:3rem">${pet()}</span><div style="flex:1"><b>صاحبك بيكبر كل ما تذاكر!</b><div class="xpbar"><i style="width:${Math.min(100,dx/30*100)}%"></i></div><small>هدف النهارده: ${Math.min(dx,30)} / 30 XP ${dx>=30?"✅":""}</small></div></div>
+ <div style="margin:8px 0;font-size:1.8rem;letter-spacing:6px">${BG.map(b=>`<span title="${b[1]}" style="opacity:${b[2]()?1:.2}">${b[0]}</span>`).join("")}</div>
+ <button class="big" style="background:#8e5bd6" onclick="gram()">📐 معمل الجرامر</button>
+ <h2>${cur().e} ${cur().ar}</h2>
+ <div class="grid">${us.map((u,k)=>{const b=S.p[u.id]||0;return `<button class="unit" style="--c:${u.c}" onclick="unit(${k})"><span class="em">${u.e}</span><b>Unit ${k+1}</b><span>${u.ar}</span><em>${"⭐".repeat(b)}${"☆".repeat(3-b)}</em></button>`}).join("")}</div>`;
+}
+let K=0,L=null;
+const addxp=n=>{const t=new Date().toDateString();if(S.dd!=t){S.dd=t;S.dxp=0}S.dxp+=n;const o=S.xp;S.xp+=n;if(Math.floor(S.xp/100)>Math.floor(o/100))setTimeout(lvl,300)};
+function gram(){L=null;sfx.tap();A.innerHTML=`<button class="back" onclick="home()">→ رجوع</button><h2>📐 معمل الجرامر</h2><div class="grid">${G.map((g,k)=>`<button class="unit" style="--c:${g.c}" onclick="gl(${k})"><span class="em">${g.e}</span><b>${g.n}</b><span>${g.ar}</span><em>${"⭐".repeat(S.p[g.id]||0)}${"☆".repeat(3-(S.p[g.id]||0))}</em></button>`).join("")}</div>`}
+function gl(k){const g=G[k];L=g;sfx.tap();A.innerHTML=`<button class="back" onclick="gram()">→ رجوع</button><h2>${g.e} ${g.n}</h2><div class="q" style="direction:rtl;text-align:right;font-weight:400;line-height:2">${g.r}</div>${g.x.map(s=>`<button class="opt" data-s="${s}" onclick="say(this.dataset.s)">🔊 ${s}</button>`).join("")}<button class="big" style="background:#ff7a3d" onclick="quiz()">🎮 دلوقتي جرّب بنفسك!</button>`}
+function unit(k){K=k;L=null;sfx.tap();const u=cur().units[k];
+ A.innerHTML=`<button class="back" onclick="home()">→ رجوع</button><h2>${u.e} Unit ${k+1}: ${u.ar}</h2>
+ <button class="big" style="background:#3aa0ff" onclick="learn()">📖 تعلّم الكلمات</button>
+ ${(u.rd||[]).map((r,j)=>`<button class="big" style="background:#2e9d6a" onclick="rdr(${j})">📚 ${r.t}</button>`).join("")}
+ <button class="big" style="background:#ff7a3d" onclick="quiz()">🎮 يلا نتحدّى!</button>`}
+function learn(){const u=cur().units[K];
+ A.innerHTML=`<button class="back" onclick="unit(${K})">→ رجوع</button><h2>📖 اضغط على الكلمة لتسمعها</h2>
+ <div class="cards">${u.v.map((s,i)=>{const[w,a,e]=s.split("|");return `<button class="card" id="v${i}" onclick="vc(${i})"><span class="em">${e}</span><b>${w}</b><small>${PR[w]||""}</small><span>${a}</span></button>`}).join("")}</div>`}
+function vc(i){const c=document.getElementById("v"+i);c.classList.remove("pop");void c.offsetWidth;c.classList.add("pop");sfx.tap();say(cur().units[K].v[i].split("|")[0])}
+
+/* ===== التحدي ===== */
+let Q,qi,hp,sc,pk,done,W;
+function quiz(){const u=L||cur().units[K];
+ Q=shuf(u.q).slice(0,10).map(q=>q[0]=="l"?{t:"m",q:"🎧 Listen and choose",say:q[1],o:shuf(q[2].map((x,i)=>[x,i==0]))}:q[0]=="m"?{t:"m",q:q[1],o:shuf(q[2].map((x,i)=>[x,i==0]))}:q[0]=="t"?{t:"t",q:q[1],a:q[2]}:{t:"o",q:"رتّب الكلمات لتكوّن جملة صحيحة:",s:q[1],w:shuf(q[1].split(" "))});
+ qi=0;hp=3;sc=0;qshow()}
+function qshow(){const q=Q[qi];done=0;pk=[];let b;
+ if(q.t=="m")b=q.o.map((o,k)=>`<button class="opt" onclick="pick(${k})">${o[0]}</button>`).join("");
+ else if(q.t=="t")b=`<button class="opt" onclick="pick(1)">✅ True</button><button class="opt" onclick="pick(0)">❌ False</button>`;
+ else b=`<div class="slot" id="sl"></div><div class="chips">${q.w.map((w,k)=>`<button class="chip" id="c${k}" onclick="chip(${k})">${w}</button>`).join("")}</div><button class="back" onclick="qshow()">↩️ امسح وابدأ تاني</button>`;
+ A.innerHTML=`<div class="top"><button class="back" onclick="${L?(L.h?"home()":"gram()"):"unit("+K+")"}">✖</button><div class="bar"><i style="width:${qi/Q.length*100}%"></i></div><span>${"❤️".repeat(hp)}</span></div>
+ <div class="q" ${q.t=="o"?'style="direction:rtl;text-align:right"':""}>${q.q} ${q.t!="o"?`<button class="ic" style="width:36px;height:36px;font-size:1rem" onclick="say(Q[qi].say||Q[qi].q)">🔊</button>`:""}</div>${b}<div id="fb"></div>`;
+ if(q.t!="o")say(q.say||q.q)}
+function pick(k){if(done)return;done=1;const q=Q[qi],bs=document.querySelectorAll(".opt");
+ let ok,ans;
+ if(q.t=="m"){ok=q.o[k][1];ans=q.o.find(o=>o[1])[0];bs.forEach((b,i)=>{if(q.o[i][1])b.classList.add("good");else if(i==k)b.classList.add("bad")})}
+ else{ok=q.a==k;ans=q.a?"True":"False";bs[q.a?0:1].classList.add("good");if(!ok)bs[k].classList.add("bad")}
+ res(ok,ans)}
+function chip(k){if(done)return;const q=Q[qi];pk.push(k);document.getElementById("c"+k).disabled=true;sfx.tap();say(q.w[k]);
+ document.getElementById("sl").innerHTML=pk.map(i=>`<span>${q.w[i]}</span>`).join(" ");
+ if(pk.length==q.w.length){done=1;res(pk.map(i=>q.w[i]).join(" ")==q.s,q.s)}}
+const praise=["برافو عليك! 🎉","ممتاز يا بطل! 🌟","شاطر جداً! 👏","إجابة صح! 🔥","عظمة! 🚀"];
+function res(ok,ans){
+ if(ok){sfx.ok();addxp(10);sc++;boom()}else{sfx.no();hp--}
+ const last=qi+1>=Q.length||hp<=0;
+ document.getElementById("fb").innerHTML=`<div class="fb ${ok?"y":"n"}">${ok?praise[Math.floor(Math.random()*5)]:`مش مشكلة، هنتعلم! الإجابة الصح: <span dir="ltr">${ans}</span>`}</div><button class="big" style="background:var(--pri)" onclick="nx()">${last?"شوف النتيجة 🏆":"التالي ←"}</button>`;save()}
+function nx(){qi++;if(qi>=Q.length||hp<=0)fin();else qshow()}
+function fin(){const u=L||cur().units[K],r=sc/Q.length;
+ const st=hp<=0?0:r>=.85?3:r>=.6?2:1;
+ if(st>(S.p[u.id]||0))S.p[u.id]=st;
+ addxp(st*5);
+ const t=new Date().toDateString(),y=new Date(Date.now()-864e5).toDateString();
+ if(S.day!=t){S.st=S.day==y?S.st+1:1;S.day=t}
+ save();if(st){sfx.win();boom()}else sfx.no();
+ A.innerHTML=`<div class="res"><h2>${st==3?"أسطورة! 🏆":st?"أحسنت! 👏":"حاول تاني، إنت تقدر! 💪"}</h2>
+ <div class="st">${[1,2,3].map(i=>`<span style="animation-delay:${i*.25}s">${i<=st?"⭐":"☆"}</span>`).join("")}</div>
+ <p>صح ${sc} من ${Q.length} · +${sc*10+st*5} XP</p>
+ <button class="big" style="background:#ff7a3d" onclick="quiz()">🔁 تحدّي تاني</button>
+ <button class="big" style="background:#3aa0ff" onclick="${L?(L.h?"home()":"gram()"):"learn()"}">${L?(L.h?"🏠 الرئيسية":"📐 باقي الجرامر"):"📖 راجع الكلمات"}</button>
+ <button class="back" onclick="home()">🏠 الرئيسية</button></div>`}
+
+/* ===== أسئلة جرامر إضافية (اختيار + ترتيب) ===== */
+G[0].q.push(["m","We ____ eat fish. It’s our favorite food. (usually)",["usually","never","rarely","hardly"]],["m","Ali is ____ late for school. (0%)",["never","always","usually","often"]],["m","Choose the correct sentence:",["She often plays tennis.","She plays often tennis.","Often she play tennis.","She play often tennis."]],["m","Choose the correct sentence:",["He is always kind.","He always is kind.","Always kind he is.","He kind always is."]],["o","She sometimes visits her grandma."],["o","The students are always ready."],["o","I never drink soda."],["o","My father usually drives to work."]);
+G[1].q.push(["m","There is ____ umbrella in the bag.",["an","a","some","any"]],["m","I need ____ sugar for the cake.",["some","an","a","many"]],["m","Is there ____ milk in the fridge?",["any","an","a","many"]],["m","She doesn’t have ____ brothers.",["any","some","an","a"]],["o","There isn’t any milk."],["o","She wants an orange."],["o","I have some water."],["o","Are there any eggs?"]);
+G[2].q.push(["m","Last night, we ____ pizza.",["ate","eat","eats","eating"]],["m","He ____ not at school yesterday.",["was","were","did","is"]],["m","They ____ happy at the party.",["were","was","did","are"]],["m","Did she ____ her homework?",["do","did","does","done"]],["m","The baby ____ all night.",["cried","cry","cries","crying"]],["o","We didn’t go to the park."],["o","Did they visit the museum?"],["o","The Egyptians built canals."],["o","What did you do yesterday?"]);
+G[3].q.push(["m","The class starts ____ 8 o’clock.",["at","on","in","to"]],["m","We have a holiday ____ Friday.",["on","in","at","by"]],["m","It snows ____ winter.",["in","on","at","to"]],["m","My birthday is ____ October.",["in","on","at","for"]],["m","I wake up ____ the morning.",["in","on","at","by"]],["o","I wake up at 7 a.m."],["o","We play football on Fridays."],["o","It is cold in winter."]);
+G[4].q.push(["m","A car is ____ than a bike. (fast)",["faster","more fast","fastest","fast"]],["m","This book is ____ than that one. (interesting)",["more interesting","interestinger","most interesting","interesting"]],["m","My bag is ____ than your bag. (heavy)",["heavier","more heavy","heaviest","heavyer"]],["m","Today is ____ than yesterday. (bad)",["worse","badder","more bad","worst"]],["m","A lion is ____ than a rabbit. (dangerous)",["more dangerous","dangerouser","most dangerous","dangerous"]],["o","A giraffe is taller than a horse."],["o","Today is worse than yesterday."]);
+U[0].q.push(["o","Small fish eat water weeds."]);U[2].q.push(["o","The pond started to dry up."]);U[3].q.push(["o","The bakery sells fresh bread."]);U[4].q.push(["o","Egypt has oil and natural gas."]);U[5].q.push(["o","Billie learned from the animals."]);
+/* ===== لمسات سحرية ===== */
+let combo=0;
+const toast=t=>{const d=document.createElement("div");d.className="toast";d.textContent=t;document.body.appendChild(d);setTimeout(()=>d.remove(),2200)};
+const lvl=()=>{boom();sfx.win();toast("🎊 مستوى جديد! صاحبك كبر "+pet())};
+const MW=()=>{const a=U.flatMap(u=>u.v);return a[Math.floor(Date.now()/864e5)%a.length]};
+function mw(){const s=MW().split("|");say(s[0]);const t=new Date().toDateString();if(S.mwd!=t){S.mwd=t;addxp(5);save();boom();toast("✨ كلمة اليوم السحرية: +5 XP");home()}}
+function wand(){if(done)return;if(S.xp<5){toast("محتاج 5 XP للعصا السحرية ⭐");return}addxp(-5);save();const q=Q[qi];let n=0;document.querySelectorAll(".opt").forEach((b,i)=>{if(!q.o[i][1]&&n<2){b.style.visibility="hidden";n++}});sfx.ok();const w=document.getElementById("wd");w.disabled=true;w.textContent="✨ اتشالت إجابتين غلط!"}
+const _h=home;home=function(){_h();const s=MW().split("|"),d=S.mwd==new Date().toDateString();A.querySelector(".big").insertAdjacentHTML("beforebegin",`<button class="card magic" onclick="mw()"><span class="em">${s[2]}</span><small>✨ كلمة اليوم السحرية ${d?"✅":"(اضغط واكسب 5 XP)"}</small><b>${s[0]}</b><span>${s[1]}</span></button>`)};
+const ALLQ=()=>[...G.flatMap(g=>g.q),...U.flatMap(u=>u.q)];
+function chal(t){L={id:"c"+t,h:1,q:t=="f"?ALLQ().filter(q=>q[0]=="m"&&q[1].includes("____")):t=="o"?ALLQ().filter(q=>q[0]=="o"):ALLQ().filter(q=>q[0]!="l")};sfx.tap();quiz()}
+const _h2=home;home=function(){_h2();A.querySelector(".big").insertAdjacentHTML("beforebegin",`<h2>🪄 تحديات سحرية</h2><button class="big" style="background:#14b8a6" onclick="chal('f')">✍️ اكمل الجملة (اختيار من متعدد)</button><button class="big" style="background:#e11d8f" onclick="chal('o')">🧩 رتّب الكلمات لتكوين جملة</button><button class="big" style="background:#6366f1" onclick="chal('x')">🎲 تحدي سحري مختلط + كومبو 🔥</button>`)};
+const _vc=vc;vc=function(i){_vc(i);if(Math.random()<.4)boom()};
+const _quiz=quiz;quiz=function(){combo=0;_quiz()};
+const _qs=qshow;qshow=function(){_qs();A.querySelector(".top").insertAdjacentHTML("beforeend",`<span title="كومبو">🔥${combo}</span>`);if(Q[qi].t=="m"){const d=document.createElement("button");d.className="wand";d.id="wd";d.textContent="🪄 عصا سحرية: احذف إجابتين غلط (-5 XP)";d.onclick=wand;document.getElementById("fb").before(d)}};
+const _res=res;res=function(ok,ans){combo=ok?combo+1:0;_res(ok,ans);let h="";if(ok&&combo>=3){const b=combo>=5?10:5;addxp(b);save();h+=`<div class="fb y">🔥 كومبو ×${combo}! بونص +${b} XP</div>`}if(!ok&&L&&L.r)h+=`<div class="tip">💡 افتكر القاعدة:<br>${L.r}</div>`;document.getElementById("fb").insertAdjacentHTML("afterbegin",h)};
+home();
+</script>
+</body>
+</html>
