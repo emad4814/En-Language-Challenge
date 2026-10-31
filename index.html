@@ -290,9 +290,23 @@ const MW=()=>{const a=U.flatMap(u=>u.v);return a[Math.floor(Date.now()/864e5)%a.
 function mw(){const s=MW().split("|");say(s[0]);const t=new Date().toDateString();if(S.mwd!=t){S.mwd=t;addxp(5);save();boom();toast("✨ كلمة اليوم السحرية: +5 XP");home()}}
 function wand(){if(done)return;if(S.xp<5){toast("محتاج 5 XP للعصا السحرية ⭐");return}addxp(-5);save();const q=Q[qi];let n=0;document.querySelectorAll(".opt").forEach((b,i)=>{if(!q.o[i][1]&&n<2){b.style.visibility="hidden";n++}});sfx.ok();const w=document.getElementById("wd");w.disabled=true;w.textContent="✨ اتشالت إجابتين غلط!"}
 const _h=home;home=function(){_h();const s=MW().split("|"),d=S.mwd==new Date().toDateString();A.querySelector(".big").insertAdjacentHTML("beforebegin",`<button class="card magic" onclick="mw()"><span class="em">${s[2]}</span><small>✨ كلمة اليوم السحرية ${d?"✅":"(اضغط واكسب 5 XP)"}</small><b>${s[0]}</b><span>${s[1]}</span></button>`)};
+/* ===== المزيد من أسئلة ترتيب الكلمات ===== */
+const OO=(a,l)=>a.q.push(...l.map(s=>["o",s]));
+OO(U[0],["Crocodiles are the kings of the Nile.","Birds eat insects and small fish.","Camels always store water in their bodies.","Tom was selfish and never cared for the tree.","Lizards eat insects to get energy.","Snakes sometimes hunt in the desert."]);
+OO(U[1],["Swimming makes your lungs strong.","The heart pumps blood to every part of the body.","Doctors check patients every day.","Nurses take care of patients.","Vitamins keep our body healthy.","Exercise helps us sleep better."]);
+OO(U[2],["A drought happens when there is no rain.","The Nile flooded every year.","Two frogs lived in a small pond.","They didn’t live in the well.","Did the frogs find a new home?","A sandstorm is a strong wind."]);
+OO(U[3],["Farmers keep cows in the barn.","People buy bread at the bakery.","The theme park opens at 9 a.m.","The Iconic Tower is in the New Administrative Capital.","I was born in March.","Let’s meet at 3 p.m."]);
+OO(U[4],["Gold is cheaper than diamond.","The Nile is the most important water resource.","Cotton grows on fertile land.","The little digger helped the big ship.","Copper is used to make wires."]);
+OO(U[5],["Billie went into the Everglades.","Alligators wait patiently for food.","Birds warn each other about danger.","Everything in nature is connected.","Billie was afraid at first."]);
+OO(G[0],["We usually eat breakfast at home.","He is never late for school.","They often play in the park.","My sister rarely watches TV.","Birds are sometimes noisy."]);
+OO(G[1],["I don’t have any apples.","She eats an egg.","Do you have any juice?","He has a banana and an apple.","There are some oranges.","We need some bread."]);
+OO(G[2],["He didn’t watch the film.","They visited the zoo.","Where did you go?","She went to school.","The Nile flooded the farms.","Were there any sandstorms?"]);
+OO(G[3],["School starts in September.","We have a party on Thursday.","I sleep at night.","The sun rises in the morning.","My birthday is in June.","The train leaves at 5 p.m."]);
+OO(G[4],["This test is easier than the last one.","An elephant is bigger than a cat.","My bag is heavier than your bag.","Mona is happier than Sara.","Football is more exciting than chess."]);
 const ALLQ=()=>[...G.flatMap(g=>g.q),...U.flatMap(u=>u.q)];
 function chal(t){L={id:"c"+t,h:1,q:t=="f"?ALLQ().filter(q=>q[0]=="m"&&q[1].includes("____")):t=="o"?ALLQ().filter(q=>q[0]=="o"):ALLQ().filter(q=>q[0]!="l")};sfx.tap();quiz()}
 const _h2=home;home=function(){_h2();A.querySelector(".big").insertAdjacentHTML("beforebegin",`<h2>🪄 تحديات سحرية</h2><button class="big" style="background:#14b8a6" onclick="chal('f')">✍️ اكمل الجملة (اختيار من متعدد)</button><button class="big" style="background:#e11d8f" onclick="chal('o')">🧩 رتّب الكلمات لتكوين جملة</button><button class="big" style="background:#6366f1" onclick="chal('x')">🎲 تحدي سحري مختلط + كومبو 🔥</button>`)};
+new MutationObserver(()=>{const f=document.querySelector(".ft");if(f)f.style.display=A.querySelector(".magic")?"":"none"}).observe(A,{childList:true});
 const _vc=vc;vc=function(i){_vc(i);if(Math.random()<.4)boom()};
 const _quiz=quiz;quiz=function(){combo=0;_quiz()};
 const _qs=qshow;qshow=function(){_qs();A.querySelector(".top").insertAdjacentHTML("beforeend",`<span title="كومبو">🔥${combo}</span>`);if(Q[qi].t=="m"){const d=document.createElement("button");d.className="wand";d.id="wd";d.textContent="🪄 عصا سحرية: احذف إجابتين غلط (-5 XP)";d.onclick=wand;document.getElementById("fb").before(d)}};
